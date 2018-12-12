@@ -1,7 +1,7 @@
 #服务的名称
 spring:
   rabbitmq:
-    host: 10.7.232.99
+    host: 10.7.227.233
     port: 5672
     username: guest
     password: guest
@@ -16,16 +16,9 @@ management:
 server:
   port: 8772
 
-#制定注册中心地址，进行服务注册（集群--高可用）
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
 spring:
-  application:
-    name: product-service
   zipkin:
-    base-url: http://10.7.232.99:9411
+    base-url: http://10.7.227.233:9411
   sleuth:
     sampler:
       probability: 1
