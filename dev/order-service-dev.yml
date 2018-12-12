@@ -1,7 +1,7 @@
 #服务的名称
 spring:
   rabbitmq:
-    host: localhost
+    host: 10.7.227.233
     port: 5672
     username: guest
     password: guest
@@ -12,3 +12,38 @@ management:
     web:
       exposure:
         include: "*"
+server:
+  port: 8781
+
+#制定注册中心地址，进行服务注册（集群--高可用）
+spring:
+  redis:
+    host: 10.7.232.99
+    port: 6379
+    database: 0
+    timeout: 2000
+    password: admin
+  zipkin:
+      base-url: http://10.7.232.99:9411
+  sleuth:
+      sampler:
+        probability: 1
+
+
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        readTimeout: 4000
+        connectTimeout: 4000
+
+#将 hystrix 熔断的超时时间设置为2秒
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000
