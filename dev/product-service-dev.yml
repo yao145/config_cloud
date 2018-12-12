@@ -1,3 +1,18 @@
+#服务的名称
+spring:
+  rabbitmq:
+    host: 10.7.232.99
+    port: 5672
+    username: guest
+    password: guest
+
+#暴露全部的监控信息
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 server:
   port: 8772
 
