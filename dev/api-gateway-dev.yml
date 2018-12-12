@@ -1,7 +1,7 @@
 #服务的名称
 spring:
   rabbitmq:
-    host: localhost
+    host: 10.7.227.233
     port: 5672
     username: guest
     password: guest
@@ -12,3 +12,17 @@ management:
     web:
       exposure:
         include: "*"
+server:
+  port: 9000
+#/order-service/api/v1/order/save?user_id=2&product_id=1
+#自定义路由映射
+zuul:
+  routes:
+    order-service: /apigateway/order/**
+    product-service: /apigateway/product/**
+  #统一入口为上面的配置，其他入口忽略
+  ignored-patterns: /*-service/**
+  #http请求头获取不到cookie的问题
+  sensitive-headers:
+  #忽略整个服务，对外提供接口
+  #ignored-services: product-service
