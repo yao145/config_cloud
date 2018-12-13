@@ -1,12 +1,12 @@
 #服务的名称
 spring:
   rabbitmq:
-    host: 10.7.227.233
+    host: 106.12.195.50
     port: 5672
     username: guest
     password: guest
   zipkin:
-    base-url: http://10.7.227.233:9411
+    base-url: http://106.12.195.50:9411
   sleuth:
     sampler:
       probability: 1
