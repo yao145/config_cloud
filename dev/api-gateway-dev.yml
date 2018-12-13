@@ -1,7 +1,7 @@
 #服务的名称
 spring:
   rabbitmq:
-    host: 10.7.227.233
+    host: 106.12.195.50
     port: 5672
     username: guest
     password: guest
